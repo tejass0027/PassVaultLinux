@@ -1,0 +1,22 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PassVaultLinux.Controls"
+             x:Class="PassVaultLinux.Views.BackupImportView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}">
+        <StackPanel VerticalAlignment="Center" MaxWidth="380" Margin="32">
+            <TextBlock Text="Import backup" Classes="headline" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" />
+            <TextBlock Classes="secondary" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Margin="0,8,0,24"
+                       Text="Enter the password you set when this backup was created, then choose the file. This also works with a backup exported from the Android or Windows app." />
+
+            <TextBlock Text="Backup password" Margin="0,0,0,4" />
+            <controls:PasswordRevealBox x:Name="PasswordBox" Margin="0,0,0,16" />
+
+            <TextBlock x:Name="ErrorText" Foreground="{DynamicResource ErrorBrush}" TextWrapping="Wrap" TextAlignment="Center" IsVisible="False" Margin="0,0,0,12" />
+
+            <Button x:Name="ChooseFileButton" Content="Choose backup file" Classes="primary" Click="ChooseFile_Click" />
+            <ProgressBar x:Name="Progress" IsIndeterminate="True" Height="4" IsVisible="False" Margin="0,12,0,0" />
+
+            <Button Content="Cancel" Classes="secondary" Click="Cancel_Click" Margin="0,8,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

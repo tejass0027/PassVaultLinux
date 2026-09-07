@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PassVaultLinux.Controls"
+             x:Class="PassVaultLinux.Views.SecurityQuestionsSetupView">
+    <ScrollViewer Background="{DynamicResource WindowBackgroundBrush}">
+        <StackPanel Margin="32">
+            <TextBlock Text="Security questions" Classes="headline" FontSize="20" />
+            <TextBlock Classes="secondary" FontSize="14" TextWrapping="Wrap" Margin="0,8,0,24"
+                       Text="These let you get back in and reset your pattern if you ever forget it or set up on a new computer. Answers aren't shown to anyone but you." />
+
+            <TextBlock Text="Question 1" Margin="0,0,0,4" />
+            <ComboBox x:Name="Question1Combo" HorizontalAlignment="Stretch" Margin="0,0,0,8" />
+            <controls:PasswordRevealBox x:Name="Answer1Box" Margin="0,0,0,20" />
+
+            <TextBlock Text="Question 2" Margin="0,0,0,4" />
+            <ComboBox x:Name="Question2Combo" HorizontalAlignment="Stretch" Margin="0,0,0,8" />
+            <controls:PasswordRevealBox x:Name="Answer2Box" Margin="0,0,0,20" />
+
+            <TextBlock Text="Question 3" Margin="0,0,0,4" />
+            <ComboBox x:Name="Question3Combo" HorizontalAlignment="Stretch" Margin="0,0,0,8" />
+            <controls:PasswordRevealBox x:Name="Answer3Box" Margin="0,0,0,12" />
+
+            <TextBlock x:Name="ErrorText" Foreground="{DynamicResource ErrorBrush}" TextWrapping="Wrap" IsVisible="False" Margin="0,0,0,12" />
+
+            <Button Content="Continue" Classes="primary" Click="Continue_Click" Margin="0,16,0,0" />
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

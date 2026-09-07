@@ -1,0 +1,42 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PassVaultLinux.Controls"
+             x:Class="PassVaultLinux.Views.AddEditEntryView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}" RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
+            <Grid ColumnDefinitions="Auto,*">
+                <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
+                <TextBlock x:Name="TitleBarText" Grid.Column="1" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="24">
+                <TextBlock Text="Title (e.g. Gmail)" Margin="0,0,0,4" />
+                <TextBox x:Name="TitleBox" Margin="0,0,0,16" />
+
+                <TextBlock Text="Username / email" Margin="0,0,0,4" />
+                <TextBox x:Name="UsernameBox" Margin="0,0,0,16" />
+
+                <TextBlock Text="Password" Margin="0,0,0,4" />
+                <Grid ColumnDefinitions="*,Auto" Margin="0,0,0,4">
+                    <controls:PasswordRevealBox x:Name="PasswordBox" Grid.Column="0" />
+                    <Button Grid.Column="1" Content="Generate" Classes="secondary" Click="Generate_Click" Margin="4,0,0,0" VerticalAlignment="Center" />
+                </Grid>
+                <ProgressBar x:Name="StrengthBar" Height="4" Minimum="0" Maximum="6" Margin="0,4,0,2" />
+                <TextBlock x:Name="StrengthLabel" FontSize="11" Margin="0,0,0,16" />
+
+                <TextBlock x:Name="ErrorText" Foreground="{DynamicResource ErrorBrush}" TextWrapping="Wrap" IsVisible="False" Margin="0,0,0,12" Text="Title and password are required." />
+
+                <TextBlock Text="Website (optional)" Margin="0,0,0,4" />
+                <TextBox x:Name="UrlBox" Margin="0,0,0,16" />
+
+                <TextBlock Text="Notes (optional)" Margin="0,0,0,4" />
+                <TextBox x:Name="NotesBox" Height="80" AcceptsReturn="True" TextWrapping="Wrap" Margin="0,0,0,24" />
+
+                <Button x:Name="SaveButton" Content="Save" Classes="primary" Click="Save_Click" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

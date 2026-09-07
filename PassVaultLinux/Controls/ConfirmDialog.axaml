@@ -1,0 +1,13 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PassVaultLinux.Controls.ConfirmDialog"
+        Width="380" SizeToContent="Height" WindowStartupLocation="CenterOwner" CanResize="False">
+    <StackPanel Margin="20">
+        <TextBlock x:Name="TitleText" Classes="headline" FontSize="16" TextWrapping="Wrap" Margin="0,0,0,8" />
+        <TextBlock x:Name="MessageText" TextWrapping="Wrap" Margin="0,0,0,20" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="Cancel" Classes="secondary" Click="No_Click" Margin="0,0,8,0" />
+            <Button x:Name="YesButton" Content="Yes" Classes="secondary" Click="Yes_Click" />
+        </StackPanel>
+    </StackPanel>
+</Window>

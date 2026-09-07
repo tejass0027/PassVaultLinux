@@ -1,0 +1,20 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PassVaultLinux.Views.PhotoVaultView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}" RowDefinitions="Auto,Auto,*">
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
+            <Grid ColumnDefinitions="Auto,*,Auto">
+                <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
+                <TextBlock Grid.Column="1" Text="Photo vault" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
+                <Button Grid.Column="2" Content="&#128247;" Classes="icon" Click="AddPhoto_Click" ToolTip.Tip="Add photo" />
+            </Grid>
+        </Border>
+
+        <ProgressBar x:Name="LoadingBar" Grid.Row="1" IsIndeterminate="True" Height="3" IsVisible="False" />
+
+        <ScrollViewer Grid.Row="2">
+            <WrapPanel x:Name="PhotosPanel" Orientation="Horizontal" Margin="8" />
+        </ScrollViewer>
+    </Grid>
+</UserControl>

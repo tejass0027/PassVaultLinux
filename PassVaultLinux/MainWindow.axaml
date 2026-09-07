@@ -1,0 +1,9 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="PassVaultLinux.MainWindow"
+        Title="PassVault" Height="760" Width="480" MinHeight="600" MinWidth="420"
+        WindowStartupLocation="CenterScreen" Icon="avares://PassVaultLinux/Assets/app.png">
+    <Grid>
+        <ContentControl x:Name="MainContent" />
+    </Grid>
+</Window>

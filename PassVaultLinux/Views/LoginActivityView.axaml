@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PassVaultLinux.Views.LoginActivityView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}" RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
+            <Grid ColumnDefinitions="Auto,*">
+                <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
+                <TextBlock Grid.Column="1" Text="Login activity" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
+            </Grid>
+        </Border>
+
+        <TextBlock x:Name="EmptyText" Grid.Row="1" Text="No login activity recorded yet." Classes="secondary" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" IsVisible="False" />
+        <ListBox x:Name="EventsList" Grid.Row="1" Background="Transparent">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="20,10" Orientation="Horizontal">
+                        <Ellipse Width="10" Height="10" Fill="{Binding IndicatorBrush}" VerticalAlignment="Center" Margin="0,0,10,0" />
+                        <StackPanel>
+                            <TextBlock Text="{Binding Label}" Foreground="{Binding TextBrush}" />
+                            <TextBlock Text="{Binding TimeText}" Classes="secondary" />
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</UserControl>

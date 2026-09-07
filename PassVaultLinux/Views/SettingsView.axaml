@@ -1,0 +1,41 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PassVaultLinux.Views.SettingsView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}" RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
+            <Grid ColumnDefinitions="Auto,*">
+                <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
+                <TextBlock Grid.Column="1" Text="Settings" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
+            </Grid>
+        </Border>
+
+        <ScrollViewer Grid.Row="1">
+            <StackPanel Margin="0,8">
+                <StackPanel Margin="20,12">
+                    <TextBlock Text="Theme" />
+                    <ComboBox x:Name="ThemeCombo" HorizontalAlignment="Stretch" Margin="0,6,0,0" SelectionChanged="ThemeCombo_SelectionChanged" />
+                </StackPanel>
+                <Separator />
+
+                <StackPanel Margin="20,12">
+                    <TextBlock Text="Auto-lock" />
+                    <ComboBox x:Name="AutoLockCombo" HorizontalAlignment="Stretch" Margin="0,6,0,0" SelectionChanged="AutoLockCombo_SelectionChanged" />
+                </StackPanel>
+                <Separator />
+
+                <Button Content="Change pattern" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="ChangePattern_Click" />
+                <Separator />
+                <Button Content="Change security questions" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="ChangeSecurityQuestions_Click" />
+                <Separator />
+                <Button Content="Export encrypted backup" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="ExportBackup_Click" />
+                <Separator />
+                <Button Content="Import backup" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="ImportBackup_Click" />
+                <Separator />
+                <Button Content="Login activity" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="LoginActivity_Click" />
+                <Separator />
+                <Button Content="Erase all data" Foreground="{DynamicResource ErrorBrush}" Classes="secondary" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Padding="20,14" Click="Erase_Click" />
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

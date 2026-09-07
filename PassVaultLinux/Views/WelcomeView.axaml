@@ -1,0 +1,12 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PassVaultLinux.Views.WelcomeView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="380" Margin="32">
+            <TextBlock Text="PassVault" Classes="headline" FontSize="28" HorizontalAlignment="Center" Margin="0,0,0,16" />
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Classes="secondary" FontSize="14"
+                       Text="Your passwords, stored only on this computer and encrypted. You'll set up a pattern lock and a couple of security questions next." />
+            <Button x:Name="GetStartedButton" Content="Get started" Classes="primary" Margin="0,32,0,0" Click="GetStarted_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

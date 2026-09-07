@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PassVaultLinux.Controls"
+             x:Class="PassVaultLinux.Views.ForgotPatternView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}">
+        <StackPanel x:Name="NoQuestionsPanel" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="380" Margin="32" IsVisible="False">
+            <TextBlock TextWrapping="Wrap" TextAlignment="Center" Text="No security questions were set up, so this computer can't be recovered this way." />
+            <Button Content="Back to login" Classes="primary" Click="BackToLogin_Click" Margin="0,16,0,0" />
+        </StackPanel>
+
+        <ScrollViewer x:Name="AnswersScroll" IsVisible="False">
+            <StackPanel Margin="32">
+                <TextBlock Text="Answer your security questions" Classes="headline" FontSize="20" Margin="0,0,0,20" />
+                <TextBlock x:Name="Question1Label" Margin="0,0,0,4" />
+                <controls:PasswordRevealBox x:Name="Answer1Box" Margin="0,0,0,16" />
+                <TextBlock x:Name="Question2Label" Margin="0,0,0,4" />
+                <controls:PasswordRevealBox x:Name="Answer2Box" Margin="0,0,0,16" />
+                <TextBlock x:Name="Question3Label" Margin="0,0,0,4" />
+                <controls:PasswordRevealBox x:Name="Answer3Box" Margin="0,0,0,16" />
+                <TextBlock x:Name="AnswersErrorText" Foreground="{DynamicResource ErrorBrush}" TextWrapping="Wrap" IsVisible="False" Margin="0,0,0,12" />
+                <Button x:Name="ContinueButton" Content="Continue" Classes="primary" Click="Continue_Click" />
+                <Button Content="Cancel" Classes="secondary" Click="Cancel_Click" Margin="0,8,0,0" />
+                <ProgressBar x:Name="AnswersProgress" IsIndeterminate="True" Height="4" IsVisible="False" Margin="0,12,0,0" />
+            </StackPanel>
+        </ScrollViewer>
+
+        <StackPanel x:Name="PatternStepPanel" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="32" IsVisible="False">
+            <TextBlock x:Name="PatternStepTitle" Classes="headline" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" Margin="0,0,0,24" />
+            <controls:PatternLockControl x:Name="NewPatternControl" Width="280" Height="280" HorizontalAlignment="Center" />
+            <ProgressBar x:Name="PatternProgress" IsIndeterminate="True" Height="4" IsVisible="False" Margin="0,12,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>

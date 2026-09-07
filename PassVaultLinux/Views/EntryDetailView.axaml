@@ -1,0 +1,43 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="PassVaultLinux.Views.EntryDetailView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}" RowDefinitions="Auto,*">
+
+        <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
+            <Grid ColumnDefinitions="Auto,*,Auto,Auto">
+                <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
+                <TextBlock x:Name="TitleText" Grid.Column="1" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" TextTrimming="CharacterEllipsis" />
+                <Button Grid.Column="2" Content="&#9998;" Classes="icon" Click="Edit_Click" ToolTip.Tip="Edit" />
+                <Button Grid.Column="3" Content="&#128465;" Classes="icon" Click="Delete_Click" ToolTip.Tip="Delete" />
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="1" Margin="24">
+            <TextBlock Text="Username" Classes="secondary" />
+            <Grid ColumnDefinitions="*,Auto" Margin="0,4,0,20">
+                <TextBlock x:Name="UsernameText" TextWrapping="Wrap" VerticalAlignment="Center" />
+                <Button Grid.Column="1" Content="Copy" Classes="secondary" Click="CopyUsername_Click" />
+            </Grid>
+
+            <TextBlock Text="Password" Classes="secondary" />
+            <Grid ColumnDefinitions="*,Auto,Auto" Margin="0,4,0,20">
+                <TextBlock x:Name="PasswordText" Grid.Column="0" TextWrapping="Wrap" VerticalAlignment="Center" FontFamily="Consolas,monospace" />
+                <Button x:Name="ToggleShowButton" Grid.Column="1" Content="Show" Classes="secondary" Click="ToggleShow_Click" />
+                <Button Grid.Column="2" Content="Copy" Classes="secondary" Click="CopyPassword_Click" />
+            </Grid>
+
+            <StackPanel x:Name="UrlPanel" IsVisible="False">
+                <TextBlock Text="Website" Classes="secondary" />
+                <Grid ColumnDefinitions="*,Auto" Margin="0,4,0,20">
+                    <TextBlock x:Name="UrlText" TextWrapping="Wrap" VerticalAlignment="Center" />
+                    <Button Grid.Column="1" Content="Copy" Classes="secondary" Click="CopyUrl_Click" />
+                </Grid>
+            </StackPanel>
+
+            <StackPanel x:Name="NotesPanel" IsVisible="False">
+                <TextBlock Text="Notes" Classes="secondary" />
+                <TextBlock x:Name="NotesText" TextWrapping="Wrap" Margin="0,4,0,0" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>
