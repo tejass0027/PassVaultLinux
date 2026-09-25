@@ -6,7 +6,7 @@
         <Border Grid.Row="0" Background="{DynamicResource SurfaceBrush}" Padding="12">
             <Grid ColumnDefinitions="Auto,*,Auto">
                 <Button Grid.Column="0" Content="&#8592;" Classes="icon" Click="Back_Click" />
-                <TextBlock Grid.Column="1" Text="Photo vault" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
+                <TextBlock x:Name="TitleText" Grid.Column="1" Text="Photo vault" Classes="headline" FontSize="16" VerticalAlignment="Center" Margin="8,0" />
                 <Button Grid.Column="2" Content="&#128247;" Classes="icon" Click="AddPhoto_Click" ToolTip.Tip="Add photo" />
             </Grid>
         </Border>

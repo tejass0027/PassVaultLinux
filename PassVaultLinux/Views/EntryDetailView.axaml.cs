@@ -9,7 +9,7 @@ namespace PassVaultLinux.Views;
 
 public partial class EntryDetailView : UserControl
 {
-    private readonly AppState _appState;
+    private readonly VaultRepository _repository;
     private readonly Credential _credential;
     private readonly Action _onBack;
     private readonly Action _onEdit;
@@ -18,10 +18,10 @@ public partial class EntryDetailView : UserControl
     private DispatcherTimer? _clipboardClearTimer;
     private string? _expectedClipboardValue;
 
-    public EntryDetailView(AppState appState, Credential credential, Action onBack, Action onEdit, Action onDeleted)
+    public EntryDetailView(AppState appState, Credential credential, Action onBack, Action onEdit, Action onDeleted, VaultRepository? repository = null)
     {
         InitializeComponent();
-        _appState = appState;
+        _repository = repository ?? appState.VaultRepository;
         _credential = credential;
         _onBack = onBack;
         _onEdit = onEdit;
@@ -109,7 +109,7 @@ public partial class EntryDetailView : UserControl
         bool confirmed = await ConfirmDialog.ShowAsync(owner, "Delete this entry?", $"\"{TitleText.Text}\" will be permanently deleted.");
         if (confirmed)
         {
-            await _appState.VaultRepository.DeleteAsync(_credential.Id);
+            await _repository.DeleteAsync(_credential.Id);
             _onDeleted();
         }
     }

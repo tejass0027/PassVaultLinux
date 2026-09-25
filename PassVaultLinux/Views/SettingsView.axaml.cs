@@ -14,6 +14,7 @@ public partial class SettingsView : UserControl
     private readonly Action _onExportBackup;
     private readonly Action _onImportBackup;
     private readonly Action _onOpenLoginActivity;
+    private readonly Action _onSetUpHiddenVault;
     private readonly Action _onErased;
 
     private readonly List<ThemeOption> _themeOptions = new()
@@ -41,6 +42,7 @@ public partial class SettingsView : UserControl
         Action onExportBackup,
         Action onImportBackup,
         Action onOpenLoginActivity,
+        Action onSetUpHiddenVault,
         Action onErased)
     {
         InitializeComponent();
@@ -51,7 +53,10 @@ public partial class SettingsView : UserControl
         _onExportBackup = onExportBackup;
         _onImportBackup = onImportBackup;
         _onOpenLoginActivity = onOpenLoginActivity;
+        _onSetUpHiddenVault = onSetUpHiddenVault;
         _onErased = onErased;
+
+        RefreshHiddenVaultUi();
 
         ThemeCombo.ItemsSource = _themeOptions;
         ThemeCombo.SelectedIndex = Math.Max(0, _themeOptions.FindIndex(o => o.Mode == _appState.CurrentThemeMode()));
@@ -93,6 +98,33 @@ public partial class SettingsView : UserControl
     private void ImportBackup_Click(object? sender, RoutedEventArgs e) => _onImportBackup();
 
     private void LoginActivity_Click(object? sender, RoutedEventArgs e) => _onOpenLoginActivity();
+
+    private void RefreshHiddenVaultUi()
+    {
+        HiddenVaultButtonText.Text = _appState.HasHiddenVault ? "Change hidden vault pattern" : "Set up hidden vault";
+        RemoveHiddenVaultButton.IsVisible = _appState.HasHiddenVault;
+        RemoveHiddenVaultSeparator.IsVisible = _appState.HasHiddenVault;
+    }
+
+    private void HiddenVault_Click(object? sender, RoutedEventArgs e) => _onSetUpHiddenVault();
+
+    private async void RemoveHiddenVault_Click(object? sender, RoutedEventArgs e)
+    {
+        var owner = TopLevel.GetTopLevel(this) as Window;
+        if (owner == null)
+        {
+            return;
+        }
+        bool confirmed = await ConfirmDialog.ShowAsync(
+            owner,
+            "Remove hidden vault?",
+            "This permanently deletes everything in it and turns off its pattern. This cannot be undone.");
+        if (confirmed)
+        {
+            _appState.RemoveHiddenVault();
+            RefreshHiddenVaultUi();
+        }
+    }
 
     private async void Erase_Click(object? sender, RoutedEventArgs e)
     {

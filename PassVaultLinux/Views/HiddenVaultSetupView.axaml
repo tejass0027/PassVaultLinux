@@ -1,0 +1,14 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PassVaultLinux.Controls"
+             x:Class="PassVaultLinux.Views.HiddenVaultSetupView">
+    <Grid Background="{DynamicResource WindowBackgroundBrush}">
+        <StackPanel VerticalAlignment="Center" Margin="32">
+            <TextBlock x:Name="TitleText" Classes="headline" FontSize="20" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" />
+            <TextBlock x:Name="SubtitleText" Classes="secondary" FontSize="14" HorizontalAlignment="Center" TextAlignment="Center" TextWrapping="Wrap" Margin="0,8,0,32" />
+            <controls:PatternLockControl x:Name="PatternControl" Width="280" Height="280" HorizontalAlignment="Center" />
+            <ProgressBar x:Name="Progress" IsIndeterminate="True" Height="4" IsVisible="False" Margin="0,16,0,0" />
+            <Button Content="Cancel" Classes="secondary" Click="Cancel_Click" Margin="0,16,0,0" />
+        </StackPanel>
+    </Grid>
+</UserControl>
